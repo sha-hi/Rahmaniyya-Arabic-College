@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Rahmaniyya Arabic College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;600;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        .contact-form {
+            flex: 2;
+            min-width: 350px;
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 15px;
+        }
+        .contact-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+        .contact-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 xxxxxxxxxx</span>
+                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> info@rahmaniyya.com</span>
+            </div>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('ml')">മലയാളം</button>
+            </div>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-text" data-i18n="collegeName">Rahmaniyya Arabic College</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="home">Home</a></li>
+                <li><a href="about.html" data-i18n="about">About Us</a></li>
+                <li><a href="courses.html" data-i18n="courses">Courses</a></li>
+                <li><a href="faculty.html" data-i18n="faculty">Faculty</a></li>
+                <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
+                <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
+                <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-title" style="background: var(--primary-color); color: white; padding: 60px 0;">
+            <h1 data-i18n="contact">Contact Us</h1>
+            <div class="underline" style="background: var(--secondary-color);"></div>
+        </section>
+
+        <section>
+            <div class="contact-container">
+                <div class="contact-details">
+                    <h2 style="color: var(--primary-color); margin-bottom: 30px;">Get in Touch</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Attassery, Trikkadeeri, Palakkad, Kerala, India - Pin: 679502</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 xxxxxxxxxx</p>
+                            <p>+91 xxxxxxxxxx</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@rahmaniyya.com</p>
+                            <p>rahmaniyya@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 data-i18n="collegeName">Rahmaniyya Arabic College</h4>
+                <p data-i18n="footerAbout">Rahmaniyya Arabic College is a premier institution dedicated to preserving and spreading Islamic knowledge.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="quickLinks">Quick Links</h4>
+                <ul>
+                    <li><a href="about.html" data-i18n="about">About Us</a></li>
+                    <li><a href="courses.html" data-i18n="courses">Courses</a></li>
+                    <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
+                    <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="contactInfo">Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Palakkad, Kerala</p>
+                <p><i class="fas fa-phone"></i> +91 xxxxxxxxxx</p>
+                <p><i class="fas fa-envelope"></i> info@rahmaniyya.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rahmaniyya Arabic College. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

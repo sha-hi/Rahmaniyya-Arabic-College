@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahmaniyya Arabic College | Excellence in Islamic Studies</title>
+    <meta name="description" content="Rahmaniyya Arabic College - A premier institution for Arabic and Islamic studies in Palakkad, Kerala. Offering Alim, Muthawwal, and Hifz courses.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;600;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 xxxxxxxxxx</span>
+                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> info@rahmaniyya.com</span>
+            </div>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('ml')">മലയാളം</button>
+            </div>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-text" data-i18n="collegeName">Rahmaniyya Arabic College</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="home">Home</a></li>
+                <li><a href="about.html" data-i18n="about">About Us</a></li>
+                <li><a href="courses.html" data-i18n="courses">Courses</a></li>
+                <li><a href="faculty.html" data-i18n="faculty">Faculty</a></li>
+                <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
+                <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
+                <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 data-i18n="heroTitle">Excellence in Arabic & Islamic Studies</h1>
+                <p data-i18n="heroSubtitle">Empowering the next generation of scholars with traditional values and modern insights.</p>
+                <div class="hero-btns">
+                    <a href="admissions.html" class="btn btn-primary" data-i18n="applyNow">Apply Now</a>
+                    <a href="courses.html" class="btn" style="border: 2px solid white; color: white; margin-left: 15px;" data-i18n="exploreCourses">Explore Courses</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" style="background: white;">
+            <div class="section-title">
+                <h2 data-i18n="ourCourses">Our Courses</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <i class="fas fa-book-open fa-3x" style="color: var(--secondary-color);"></i>
+                    <h3 data-i18n="alimCourse">Alim Course</h3>
+                    <p data-i18n="alimDesc">A comprehensive program focusing on Islamic jurisprudence, theology, and Arabic literature.</p>
+                </div>
+                <div class="course-card">
+                    <i class="fas fa-graduation-cap fa-3x" style="color: var(--secondary-color);"></i>
+                    <h3 data-i18n="muthawwalCourse">Muthawwal Course</h3>
+                    <p data-i18n="muthawwalDesc">Advanced level studies in Islamic sciences and linguistic mastery.</p>
+                </div>
+                <div class="course-card">
+                    <i class="fas fa-quran fa-3x" style="color: var(--secondary-color);"></i>
+                    <h3 data-i18n="hifzCourse">Hifz Quran</h3>
+                    <p data-i18n="hifzDesc">Dedicated program for memorization of the Holy Quran with Tajweed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" style="background: var(--light-gray);">
+            <div class="section-title">
+                <h2 data-i18n="locationTitle">Location</h2>
+                <div class="underline"></div>
+            </div>
+            <div style="text-align: center;">
+                <p style="font-size: 1.2rem;" data-i18n="locationDesc">Attassery, Trikkadeeri, Palakkad, Kerala, India</p>
+                <!-- Add a map placeholder or iframe later -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 data-i18n="collegeName">Rahmaniyya Arabic College</h4>
+                <p data-i18n="footerAbout">Rahmaniyya Arabic College is a premier institution dedicated to preserving and spreading Islamic knowledge.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="quickLinks">Quick Links</h4>
+                <ul>
+                    <li><a href="about.html" data-i18n="about">About Us</a></li>
+                    <li><a href="courses.html" data-i18n="courses">Courses</a></li>
+                    <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
+                    <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="contactInfo">Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Palakkad, Kerala</p>
+                <p><i class="fas fa-phone"></i> +91 xxxxxxxxxx</p>
+                <p><i class="fas fa-envelope"></i> info@rahmaniyya.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rahmaniyya Arabic College. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Rahmaniyya Arabic College</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400;600;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +91 xxxxxxxxxx</span>
+                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> info@rahmaniyya.com</span>
+            </div>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('ml')">മലയാളം</button>
+            </div>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-text" data-i18n="collegeName">Rahmaniyya Arabic College</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="home">Home</a></li>
+                <li><a href="about.html" data-i18n="about">About Us</a></li>
+                <li><a href="courses.html" data-i18n="courses">Courses</a></li>
+                <li><a href="faculty.html" data-i18n="faculty">Faculty</a></li>
+                <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
+                <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
+                <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-title" style="background: var(--primary-color); color: white; padding: 60px 0;">
+            <h1 data-i18n="admissions">Admissions</h1>
+            <div class="underline" style="background: var(--secondary-color);"></div>
+        </section>
+
+        <section>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="color: var(--primary-color); margin-bottom: 20px;">Admission Process</h2>
+                <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; background: var(--light-gray); padding: 30px; border-radius: 10px;">
+                        <h3>1. Application</h3>
+                        <p>Fill out the application form available at the college office or download it from our website.</p>
+                        <h3 style="margin-top: 20px;">2. Entrance Test</h3>
+                        <p>Shortlisted candidates will be invited for an entrance examination focusing on basic Arabic and Islamic knowledge.</p>
+                        <h3 style="margin-top: 20px;">3. Interview</h3>
+                        <p>Successful candidates will have a personal interview with the faculty board.</p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; background: var(--accent-color); padding: 30px; border-radius: 10px;">
+                        <h3 style="color: var(--secondary-color);">Requirements</h3>
+                        <ul style="margin-top: 15px; margin-left: 20px;">
+                            <li>Birth Certificate</li>
+                            <li>Previous School Records</li>
+                            <li>Character Certificate</li>
+                            <li>4 Passport Size Photos</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="margin-top: 30px;">Download Application Form</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 data-i18n="collegeName">Rahmaniyya Arabic College</h4>
+                <p data-i18n="footerAbout">Rahmaniyya Arabic College is a premier institution dedicated to preserving and spreading Islamic knowledge.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="quickLinks">Quick Links</h4>
+                <ul>
+                    <li><a href="about.html" data-i18n="about">About Us</a></li>
+                    <li><a href="courses.html" data-i18n="courses">Courses</a></li>
+                    <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
+                    <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="contactInfo">Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Palakkad, Kerala</p>
+                <p><i class="fas fa-phone"></i> +91 xxxxxxxxxx</p>
+                <p><i class="fas fa-envelope"></i> info@rahmaniyya.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rahmaniyya Arabic College. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
