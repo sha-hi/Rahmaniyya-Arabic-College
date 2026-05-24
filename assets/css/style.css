@@ -113,7 +113,7 @@ nav {
     justify-content: center;
     text-align: center;
     color: white;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/campus.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/above-view.png');
     background-size: cover;
     background-position: center;
 }
