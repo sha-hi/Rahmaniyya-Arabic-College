@@ -44,15 +44,48 @@
         .gallery-item:hover .gallery-overlay {
             transform: translateY(0);
         }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            animation: zoom 0.3s;
+        }
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-modal:hover {
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="top-bar">
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +91 xxxxxxxxxx</span>
-                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> info@rahmaniyya.com</span>
-            </div>
+
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
                 <button class="lang-btn" onclick="switchLanguage('ml')">മലയാളം</button>
@@ -61,6 +94,9 @@
         <nav>
             <div class="logo-container">
                 <div class="logo-text" data-i18n="collegeName">Rahmaniyya Arabic College</div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" data-i18n="home">Home</a></li>
@@ -83,44 +119,115 @@
         <section>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="assets/images/campus.jpg" alt="College Campus">
-                    <div class="gallery-overlay">Main Campus Building</div>
+                    <img src="assets/images/gallery/1.jpeg" alt="College Photo 1">
                 </div>
-                <!-- Add placeholders for other images -->
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1541339907198-e08756ebafe3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Students"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Graduation"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Library"></div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/2.jpeg" alt="College Photo 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/3.jpeg" alt="College Photo 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/4.jpeg" alt="College Photo 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/5.jpeg" alt="College Photo 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/6.jpeg" alt="College Photo 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/7.jpeg" alt="College Photo 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/8.jpeg" alt="College Photo 8">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/9.jpeg" alt="College Photo 9">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/10.jpeg" alt="College Photo 10">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/11.jpeg" alt="College Photo 11">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/12.jpeg" alt="College Photo 12">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/13.jpeg" alt="College Photo 13">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/14.jpeg" alt="College Photo 14">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/15.jpeg" alt="College Photo 15">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/16.jpeg" alt="College Photo 16">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/17.jpeg" alt="College Photo 17">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/18.jpeg" alt="College Photo 18">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/19.jpeg" alt="College Photo 19">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/20.jpeg" alt="College Photo 20">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/21.jpeg" alt="College Photo 21">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/gallery/22.jpeg" alt="College Photo 22">
+                </div>
             </div>
         </section>
     </main>
 
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4 data-i18n="collegeName">Rahmaniyya Arabic College</h4>
-                <p data-i18n="footerAbout">Rahmaniyya Arabic College is a premier institution dedicated to preserving and spreading Islamic knowledge.</p>
-            </div>
-            <div class="footer-col">
-                <h4 data-i18n="quickLinks">Quick Links</h4>
-                <ul>
-                    <li><a href="about.html" data-i18n="about">About Us</a></li>
-                    <li><a href="courses.html" data-i18n="courses">Courses</a></li>
-                    <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
-                    <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4 data-i18n="contactInfo">Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Palakkad, Kerala</p>
-                <p><i class="fas fa-phone"></i> +91 xxxxxxxxxx</p>
-                <p><i class="fas fa-envelope"></i> info@rahmaniyya.com</p>
-            </div>
-        </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Rahmaniyya Arabic College. All Rights Reserved.</p>
+            <p>&copy; 2026 Rahmaniyya Arabic College.</p>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
+            const closeBtn = document.querySelector(".close-modal");
+            const items = document.querySelectorAll(".gallery-item img");
+
+            items.forEach(img => {
+                img.addEventListener("click", function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                });
+            });
+
+            closeBtn.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            modal.addEventListener("click", (e) => {
+                if(e.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+
+
