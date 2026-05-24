@@ -25,6 +25,9 @@ body {
 [lang="ml"] {
     font-family: 'Baloo Chettan 2', cursive;
 }
+[lang="ml"] .hero-content h1 {
+    font-size: 2.8rem; /* Scaled down for Malayalam */
+}
 
 /* Header & Navigation */
 header {
@@ -241,12 +244,79 @@ footer {
     color: #9ca3af;
 }
 
-/* Responsive */
+/* Responsive Design */
+
+/* Large screens (Big size version) */
+@media (min-width: 1200px) {
+    section {
+        padding: 100px 15%;
+    }
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+    [lang="ml"] .hero-content h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Laptops */
+@media (max-width: 1024px) {
+    section {
+        padding: 80px 5%;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+}
+
+/* Tablets (Tabotion) */
 @media (max-width: 768px) {
     .nav-links {
         display: none; /* Mobile menu logic in JS */
     }
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+    [lang="ml"] .hero-content h1 {
+        font-size: 2rem;
+    }
+    .top-bar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .contact-info span {
+        margin: 0 !important;
+    }
+}
+
+/* Mobile version */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    [lang="ml"] .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .hero-btns .btn {
+        margin: 0 !important;
+        width: 80%;
+    }
+    .section-title h2 {
+        font-size: 2rem;
     }
 }
