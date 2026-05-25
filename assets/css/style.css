@@ -211,10 +211,13 @@ footer {
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 40px;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .footer-col h4 {
@@ -260,6 +263,37 @@ footer {
     }
     [lang="ml"] .hero-content h1 {
         font-size: 3.5rem;
+    }
+    .footer-col ul {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    .footer-col ul li {
+        margin-bottom: 0;
+    }
+}
+
+/* Laptops & Tablets (Parallel Links) */
+@media (min-width: 768px) {
+    .footer-col {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+    }
+    .footer-col h4 {
+        margin-bottom: 0;
+    }
+    .footer-col ul {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+    }
+    .footer-col ul li {
+        margin-bottom: 0;
     }
 }
 

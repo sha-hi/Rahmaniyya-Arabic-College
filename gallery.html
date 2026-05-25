@@ -80,6 +80,34 @@
         .close-modal:hover {
             color: var(--secondary-color);
         }
+        .modal-prev, .modal-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -25px;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0, 0, 0, 0.4);
+            border: none;
+            z-index: 2001;
+        }
+        .modal-prev {
+            left: 0;
+        }
+        .modal-next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .modal-prev:hover, .modal-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -190,12 +218,14 @@
 
     <div id="imageModal" class="modal">
         <span class="close-modal">&times;</span>
+        <button class="modal-prev" id="modalPrev">&#10094;</button>
         <img class="modal-content" id="modalImg">
+        <button class="modal-next" id="modalNext">&#10095;</button>
     </div>
 
     <footer>
         <div class="footer-bottom">
-            <p>&copy; 2026 Rahmaniyya Arabic College.</p>
+            <p>&copy; Rahmaniyya Arabic College.</p>
         </div>
     </footer>
 
@@ -206,11 +236,27 @@
             const modalImg = document.getElementById("modalImg");
             const closeBtn = document.querySelector(".close-modal");
             const items = document.querySelectorAll(".gallery-item img");
+            const prevBtn = document.getElementById("modalPrev");
+            const nextBtn = document.getElementById("modalNext");
 
-            items.forEach(img => {
+            let currentIndex = 0;
+            const images = Array.from(items);
+
+            function showImage(index) {
+                if (index >= images.length) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = images.length - 1;
+                } else {
+                    currentIndex = index;
+                }
+                modalImg.src = images[currentIndex].src;
+            }
+
+            images.forEach((img, index) => {
                 img.addEventListener("click", function() {
                     modal.style.display = "block";
-                    modalImg.src = this.src;
+                    showImage(index);
                 });
             });
 
@@ -223,6 +269,43 @@
                     modal.style.display = "none";
                 }
             });
+
+            prevBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                showImage(currentIndex - 1);
+            });
+
+            nextBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                showImage(currentIndex + 1);
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal.style.display === "block") {
+                    if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+                    if (e.key === "ArrowRight") showImage(currentIndex + 1);
+                    if (e.key === "Escape") modal.style.display = "none";
+                }
+            });
+
+            // Swipe navigation
+            let touchstartX = 0;
+            let touchendX = 0;
+
+            modal.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            modal.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+
+            function handleSwipe() {
+                if (touchendX < touchstartX - 50) showImage(currentIndex + 1); // Swiped left
+                if (touchendX > touchstartX + 50) showImage(currentIndex - 1); // Swiped right
+            }
         });
     </script>
 </body>
