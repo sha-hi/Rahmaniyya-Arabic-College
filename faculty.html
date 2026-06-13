@@ -12,6 +12,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
+            margin-bottom: 60px;
         }
         .faculty-card {
             text-align: center;
@@ -25,23 +26,76 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        .faculty-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: #eee;
-            margin: 0 auto 20px;
+        .section-subtitle {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+        .accordion-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .accordion-header {
+            width: 100%;
+            padding: 20px 25px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            color: #ccc;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: background 0.3s ease;
+        }
+        .accordion-header:hover {
+            background: #f9f9f9;
+        }
+        .accordion-header i {
+            transition: transform 0.3s ease;
+            color: var(--secondary-color);
+        }
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+        .accordion-item.active .accordion-content {
+            padding: 0 25px 20px 25px;
+            max-height: 1000px; /* Arbitrary large number to allow animation */
+        }
+        .accordion-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .accordion-content ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .accordion-content ul li:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="top-bar">
-
             <div class="lang-toggle">
                 <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
                 <button class="lang-btn" onclick="switchLanguage('ml')">മലയാളം</button>
@@ -58,7 +112,7 @@
                 <li><a href="index.html" data-i18n="home">Home</a></li>
                 <li><a href="about.html" data-i18n="about">About Us</a></li>
                 <li><a href="courses.html" data-i18n="courses">Courses</a></li>
-                <li><a href="faculty.html" data-i18n="faculty">Faculty</a></li>
+                <li><a href="faculty.html" class="active" data-i18n="faculty">Faculty</a></li>
                 <li><a href="admissions.html" data-i18n="admissions">Admissions</a></li>
                 <li><a href="gallery.html" data-i18n="gallery">Gallery</a></li>
                 <li><a href="contact.html" data-i18n="contact">Contact Us</a></li>
@@ -73,35 +127,307 @@
         </section>
 
         <section>
-            <div class="faculty-grid">
+            <h2 class="section-subtitle" data-i18n="adminHeading">Administration & Academic Leadership</h2>
+            
+            <div style="max-width: 400px; margin: 0 auto 40px auto;">
                 <div class="faculty-card">
-                    <div class="faculty-img"><i class="fas fa-user fa-4x"></i></div>
-                    <h3>Principal Name</h3>
-                    <p style="color: var(--secondary-color); font-weight: 600;">Principal</p>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Expert in Arabic Language & Literature with 20+ years of experience.</p>
+                    <h3 data-i18n="ktMuhammed">Shaikhuna K.T. Muhammed Kutty Hazrath</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-top: 10px;" data-i18n="chairman">Chairman</p>
+                    <p style="font-size: 0.9rem; color: #666;" data-i18n="academicDirector">Academic Director</p>
                 </div>
-                <!-- More placeholders -->
+            </div>
+
+            <div class="faculty-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 60px;">
                 <div class="faculty-card">
-                    <div class="faculty-img"><i class="fas fa-user fa-4x"></i></div>
-                    <h3>Professor Name</h3>
-                    <p style="color: var(--secondary-color); font-weight: 600;">Senior HOD</p>
-                    <p style="margin-top: 10px; font-size: 0.9rem;">Specilized in Fiqh and Islamic Jurisprudence.</p>
+                    <h3 data-i18n="kkAbdulRahman">K.K. Abdul Rahman Musliyar</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-top: 10px;" data-i18n="principalTitle">Principal</p>
+                    <p style="font-size: 0.9rem; color: #666;" data-i18n="academicDirector">Academic Director</p>
                 </div>
 
+                <div class="faculty-card">
+                    <h3 data-i18n="ustadJabir">Ustad Jabir Rahmani</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-top: 10px;" data-i18n="vicePrincipal">Vice Principal</p>
+                </div>
+
+                <div class="faculty-card">
+                    <h3 data-i18n="ustadJubair">Ustad Jubair Rahmani</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-top: 10px;" data-i18n="generalSecretary">General Secretary</p>
+                    <p style="font-size: 0.9rem; color: #666;" data-i18n="treasurer">Treasurer</p>
+                </div>
+            </div>
+
+            <h2 class="section-subtitle" style="margin-top: 60px;" data-i18n="deptHeading">Departments & Committees</h2>
+            <div class="accordion">
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="hod">Heads of Department (HOD)</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ktMuhammed">Shaikhuna K.T. Muhammed Kutty Hazrath</li>
+                            <li data-i18n="kkAbdulRahman">K.K. Abdul Rahman Musliyar</li>
+                            <li data-i18n="ustadRahim">Ustad Rahim Baqawi</li>
+                            <li data-i18n="ustadAlawi">Ustad Alawi Kutbi Baqawi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="professors">Professors</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadAboobakkar">Ustad Aboobakkar</li>
+                            <li data-i18n="ustadKabeer">Ustad Kabeer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="lecturers">Lecturers</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ktMuhammed">Shaikhuna K.T. Muhammed Kutty Hazrath</li>
+                            <li data-i18n="kkAbdulRahman">K.K. Abdul Rahman Musliyar</li>
+                            <li data-i18n="ustadRahim">Ustad Rahim Baqawi</li>
+                            <li data-i18n="ustadAlawi">Ustad Alawi Kutti Baqawi</li>
+                            <li data-i18n="ustadMueedin">Ustad Mueedin Kutbi Rahmani</li>
+                            <li data-i18n="ustadJabir">Ustad Jabir Rahmani</li>
+                            <li data-i18n="ustadJubair">Ustad Jubair Rahmani</li>
+                            <li data-i18n="ustadUmair">Ustad Umair Rahmani</li>
+                            <li data-i18n="ustadAbu">Ustad Abu Rahmani</li>
+                            <li data-i18n="ustadJamal">Ustad Jamal Rahmani</li>
+                            <li data-i18n="ustadSalman">Ustad Salman Rahmani</li>
+                            <li data-i18n="ustadHibathullah">Ustad Hibathullah Rahmani</li>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                            <li data-i18n="ustadAboobakkar">professor aboobakkar</li>
+                            <li data-i18n="ustadKabeer">professor kabeer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="guestFaculty">Guest Faculty</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="moosaMoulavi">Moosa Moulavi</li>
+                            <li data-i18n="name1">Name 1</li>
+                            <li data-i18n="name2">Name 2</li>
+                            <li data-i18n="name3">Name 3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="academicCoords">Academic Coordinators</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ktMuhammed">Shaikhuna K.T. Muhammed Kutty Hazrath</li>
+                            <li data-i18n="kkAbdulRahman">K.K. Abdul Rahman Musliyar</li>
+                            <li data-i18n="ustadJamal">Ustad Jamal Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="examControllers">Examination Controllers</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadUmair">Ustad Umair Rahmani</li>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                            <li data-i18n="ustadHibathullah">Ustad Hibathullah Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="studentAffairs">Student Affairs Coordinators</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                            <li data-i18n="ustadSalman">Ustad Salman Rahmani</li>
+                            <li data-i18n="ustadAbu">Ustad Abu Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="itSection">IT Section</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                            <li data-i18n="ustadAbu">Ustad Abu Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-subtitle" style="margin-top: 60px;" data-i18n="facultyHeading">Faculty Members & Subjects</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjFiqh">Fiqh</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadAlawi">Ustad Alawi Kutbi Baqawi</li>
+                            <li data-i18n="ustadRahim">Ustad Rahim Baqawi</li>
+                            <li data-i18n="ustadUmair">Ustad Umair Rahmani</li>
+                            <li data-i18n="ustadAbu">Ustad Abu Rahmani</li>
+                            <li data-i18n="ustadJamal">Ustad Jamal Rahmani</li>
+                            <li data-i18n="ustadHibathullah">Ustad Hibathullah Rahmani</li>
+                            <li data-i18n="ustadMueedin">Ustad Mueedin Kutbi Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjHadith">Hadith</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadAlawi">Ustad Alawi Kutbi Baqawi</li>
+                            <li data-i18n="ustadJabir">Ustad Jabir Rahmani</li>
+                            <li data-i18n="ustadUmair">Ustad Umair Rahmani</li>
+                            <li data-i18n="ustadJamal">Ustad Jamal Rahmani</li>
+                            <li data-i18n="ustadSalman">Ustad Salman Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjTafseer">Tafseer</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadJabir">Ustad Jabir Rahmani</li>
+                            <li data-i18n="ustadJubair">Ustad Jubair Rahmani</li>
+                            <li data-i18n="ustadJamal">Ustad Jamal Rahmani</li>
+                            <li data-i18n="ustadMueedin">Ustad Mueedin Kutbi Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjTasawwuf">Tasawwuf</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadRahim">Ustad Rahim Baqawi</li>
+                            <li data-i18n="ustadJubair">Ustad Jubair Rahmani</li>
+                            <li data-i18n="ustadAbu">Ustad Abu Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjMantiq">Mantiq / Ilm al-Mantiq</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadJabir">Ustad Jabir Rahmani</li>
+                            <li data-i18n="ustadJamal">Ustad Jamal Rahmani</li>
+                            <li data-i18n="ustadSalman">Ustad Salman Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjUsul">Usul al-Fiqh</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadRahim">Ustad Rahim Baqawi</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjNahw">Nahw</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadSalman">Ustad Salman Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjHistory">Islamic History</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadHibathullah">Ustad Hibathullah Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjManagement">Management</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadJubair">Ustad Jubair Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjEthics">Islamic Ethics & Moral Education</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjMethodology">Educational Methodology</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjEnglish">English Language</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header"><span data-i18n="subjIT">Information Technology</span> <i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li data-i18n="ustadShahid">Ustad Shahid Rahmani</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-
         <div class="footer-bottom">
-            <p>&copy; Rahmaniyya Arabic College.</p>
+            <p data-i18n="copyright">&copy; 2026 Rahmaniyya Arabic College.</p>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all accordions (optional, but requested by some for cleaner UI)
+                    // document.querySelectorAll('.accordion-item').forEach(acc => acc.classList.remove('active'));
+                    
+                    if (!isActive) {
+                        item.classList.add('active');
+                        header.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                        header.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
